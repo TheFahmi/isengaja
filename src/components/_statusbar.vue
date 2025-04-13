@@ -1,9 +1,9 @@
 <template>
-  <div id="__statusbar" class="absolute top-0 w-full h-10 text-black">
-    <div class="container flex items-center justify-between h-full">
-      <div id="__jam" v-text="dataJam"></div>
-      <div class="flex space-x-1">
-        <div id="__signal">
+  <div id="__statusbar" class="absolute top-0 w-full h-12 text-modern-dark bg-glass-400 backdrop-blur-lg border-b border-glass shadow-sm z-50">
+    <div class="container flex items-center justify-between h-full px-4">
+      <div id="__jam" class="font-bold text-lg" v-text="dataJam"></div>
+      <div class="flex space-x-3">
+        <div id="__signal" class="text-modern-primary">
           <svg
             width="18"
             height="12"
@@ -19,7 +19,7 @@
             />
           </svg>
         </div>
-        <div id="__wifi">
+        <div id="__wifi" class="text-modern-primary">
           <svg
             width="16"
             height="12"
@@ -35,7 +35,7 @@
             />
           </svg>
         </div>
-        <div id="__battery">
+        <div id="__battery" class="text-modern-primary">
           <svg
             width="25"
             height="12"
@@ -46,7 +46,7 @@
             <path
               opacity="0.35"
               d="M2.66667 0.833496H19.3333C20.53 0.833496 21.5 1.80355 21.5 3.00016V9.00016C21.5 10.1968 20.53 11.1668 19.3333 11.1668H2.66667C1.47005 11.1668 0.5 10.1968 0.5 9.00016V3.00016C0.5 1.80354 1.47005 0.833496 2.66667 0.833496Z"
-              stroke="black"
+              stroke="currentColor"
             />
             <path
               opacity="0.4"
@@ -90,8 +90,30 @@ export default {
 #__statusbar {
   font-size: 15px;
   letter-spacing: -0.02em;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background-color: rgba($color: #ffffff, $alpha: 0.4);
+  border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.25);
+  transition: all 0.3s ease;
+
   #__jam {
-    font-weight: 600;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  svg {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+
+    &:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+    }
   }
 }
 </style>

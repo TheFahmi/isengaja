@@ -1,25 +1,46 @@
 <template>
   <div id="__message" class="absolute w-full">
-    <div class="container flex flex-col h-full pb-1 space-y-1 overflow-y-auto">
+    <div class="container flex flex-col h-full pb-1 space-y-3 overflow-y-auto px-4">
       <div
         id="__date"
-        class="flex justify-center mt-2 mb-2 space-x-1 text-xs text-gray-600"
+        class="flex justify-center mt-4 mb-4 space-x-2 text-xs text-modern-dark/70 bg-glass-300 backdrop-blur-md py-2 px-4 rounded-full mx-auto shadow-sm"
       >
         <span class="font-semibold">{{ dataHari }}</span>
         <span class="font-light">{{ dataJam }}</span>
       </div>
       <bubble
-        class="capitalize"
+        class="capitalize transition-all duration-300 ease-in-out hover:translate-y-[-2px] hover:scale-[1.02]"
         arah="right"
         :pesan="dataUcapan + ' ' + nama + ' 😊.'"
       />
-      <bubble arah="right" pesan="Aku mau ngomong nih sama kamu.." />
+      <bubble
+        class="transition-all duration-300 ease-in-out hover:translate-y-[-2px] hover:scale-[1.02]"
+        arah="right"
+        pesan="Aku mau ngomong nih sama kamu.."
+      />
       <br />
-      <bubble arah="left" pesan="Ngomong apa?" :read="dataRead" />
+      <bubble
+        class="transition-all duration-300 ease-in-out hover:translate-y-[-2px] hover:scale-[1.02]"
+        arah="left"
+        pesan="Ngomong apa?"
+        :read="dataRead"
+      />
       <br />
-      <bubble arah="right" pesan="Ya.." />
-      <bubble arah="right" pesan="Kita sering berantem terus" />
-      <bubble arah="right" pesan="Kamu mau gak maafin aku?" />
+      <bubble
+        class="transition-all duration-300 ease-in-out hover:translate-y-[-2px] hover:scale-[1.02]"
+        arah="right"
+        pesan="Ya.."
+      />
+      <bubble
+        class="transition-all duration-300 ease-in-out hover:translate-y-[-2px] hover:scale-[1.02]"
+        arah="right"
+        pesan="Kita sering berantem terus"
+      />
+      <bubble
+        class="transition-all duration-300 ease-in-out hover:translate-y-[-2px] hover:scale-[1.02]"
+        arah="right"
+        pesan="Kamu mau gak maafin aku?"
+      />
       <br />
       <jawaban class="z-50" />
       <br />
@@ -69,7 +90,31 @@ export default {
 
 <style lang="scss" scoped>
 #__message {
-  top: 120px;
+  top: 130px;
   bottom: 135px;
+
+  #__date {
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+
+    span {
+      transition: all 0.3s ease;
+
+      &.font-semibold {
+        color: rgba($color: #111827, $alpha: 0.8);
+      }
+
+      &.font-light {
+        color: rgba($color: #111827, $alpha: 0.6);
+      }
+    }
+  }
 }
 </style>
